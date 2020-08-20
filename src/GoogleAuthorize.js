@@ -54,9 +54,10 @@ class GoogleAuthorize extends Component {
       return;
     }
 
-    const { clientId, cookiePolicy, loginHint, hostedDomain, fetchBasicProfile, redirectUri, discoveryDocs, onFailure, uxMode, scope, responseType, onSuccess, onRequest, prompt } = this.props;
+    const { approvalPrompt, clientId, cookiePolicy, loginHint, hostedDomain, fetchBasicProfile, redirectUri, discoveryDocs, onFailure, uxMode, scope, responseType, onSuccess, onRequest, prompt } = this.props;
 
     const params = {
+      approval_prompt:        approvalPrompt,
       client_id:              clientId,
       cookie_policy:          cookiePolicy,
       login_hint:             loginHint,
@@ -170,7 +171,8 @@ GoogleAuthorize.propTypes = {
   uxMode:            PropTypes.string,
   responseType:      PropTypes.string,
   type:              PropTypes.string,
-  render:            PropTypes.func
+  render:            PropTypes.func,
+  approvalPrompt:    PropTypes.string
 };
 
 GoogleAuthorize.defaultProps = {
